@@ -14,7 +14,9 @@
     "payment"
   ],
   "dependencies": {
-    "xmlbuilder": "~2.1.0"
+    "xmlbuilder": "~2.1.0",
+    "request": "~2.34.0",
+    "xml2js": "~0.4.1"
   },
   "devDependencies": {
     "seneca": "~0.5.8",
