@@ -1,0 +1,22 @@
+{
+  "name": "seneca-worldpay",
+  "version": "0.0.1",
+  "description": "Seneca worldpay plugin",
+  "main": "lib/worldpay.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chico/seneca-worldpay.git"
+  },
+  "keywords": [
+    "seneca",
+    "worldpay",
+    "plugin",
+    "payment"
+  ],
+  "dependencies": {
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "seneca": "~0.5.8"
+  }
+}
