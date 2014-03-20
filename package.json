@@ -2,7 +2,7 @@
   "name": "seneca-worldpay",
   "version": "0.0.1",
   "description": "Seneca worldpay plugin",
-  "main": "lib/worldpay.js",
+  "main": "lib/main.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/chico/seneca-worldpay.git"

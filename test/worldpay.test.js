@@ -31,7 +31,7 @@ describe('worldpay', function() {
 
 	function setup(cb) {
 		if (ready) {return cb();}
-    seneca.use('..');
+    seneca.use('../lib/worldpay');
     seneca.ready(function(err) {
     	assert.isNull(err);
     	client = seneca.export('worldpay/client');
