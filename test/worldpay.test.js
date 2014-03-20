@@ -16,6 +16,11 @@ describe('worldpay', function() {
 		production: false,
 		merchantCode: 'ABC',
 		password: 'test',
+		redirect: {
+        hostUrl: "http://localhost:3000",
+        success: "/pay/completed",
+        fail: "/pay/cancelled"
+    },
     order: {
       id: '123',
       description: 'test order',
@@ -74,17 +79,18 @@ describe('worldpay', function() {
 
 	it('handleResponse', function( done ){
     setup( function(){
-    	var expectedRedirect = 'https://secure-test.worldpay.com/wcc/dispatcher?OrderKey=CXTRPECOM%5Errywfubuu6';
+    	var worldpayRedirect = 'https://secure-test.worldpay.com/wcc/dispatcher?OrderKey=CXTRPECOM%5Errywfubuu6';
+    	var expectedRedirect = worldpayRedirect + '&successURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcompleted&failureURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcancelled';
     	var responseXml = '<?xml version="1.0" encoding="UTF-8"?>';
     	responseXml += '<!DOCTYPE paymentService PUBLIC "-//WorldPay//DTD WorldPay PaymentService v1//EN" "http://dtd.worldpay.com/paymentService_v1.dtd">';
     	responseXml += '<paymentService version="1.4" merchantCode="ABC">';
     	responseXml += '<reply>';
     	responseXml += '<orderStatus orderCode="rrywfubuu6">';
-    	responseXml += '<reference id="3006487468">' + expectedRedirect + '</reference>';
+    	responseXml += '<reference id="3006487468">' + worldpayRedirect + '</reference>';
     	responseXml += '</orderStatus>';
     	responseXml += '</reply>';
     	responseXml += '</paymentService>';
-    	client.handleResponse(null, {statusCode:200}, responseXml, function(err, result) {
+    	client.handleResponse(data, null, {statusCode:200}, responseXml, function(err, result) {
     		assert.isNull(err);
     		assert.deepEqual({ok: true, redirect: expectedRedirect}, result);
     		done();
