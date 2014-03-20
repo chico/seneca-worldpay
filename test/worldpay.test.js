@@ -48,7 +48,6 @@ describe('worldpay', function() {
 
   it('buildxml', function( done ){
     setup( function(){
-
     	var expectedXml = '<?xml version="1.0" encoding="UTF-8"?>';
     	expectedXml += '<!DOCTYPE paymentService PUBLIC "-//WorldPay//DTD WorldPay PaymentService v1//EN" "http://dtd.worldpay.com/paymentService_v1.dtd">';
     	expectedXml += '<paymentService version="1.4" merchantCode="' + data.merchantCode + '">';
@@ -64,7 +63,6 @@ describe('worldpay', function() {
     	assert.equal(expectedXml, client.buildxml(data));
     	done();
     });
-
   });
 
 	it('buildRequestOptions', function( done ){
@@ -96,7 +94,26 @@ describe('worldpay', function() {
     		done();
     	});
     });
+  });
 
+	it('checkoutCompleted', function( done ){
+    setup( function(){
+    	client.checkoutCompleted({orderKey: '123', paymentStatus: 'APPROVED', mac: 'secret'}, function(err, result) {
+    		assert.isNull(err);
+    		assert.deepEqual({ok: true, orderKey: '123', paymentStatus: 'APPROVED', mac: 'secret'}, result);
+    		done();
+    	});
+    });
+  });
+
+  it('checkoutCancelled', function( done ){
+    setup( function(){
+    	client.checkoutCancelled({}, function(err, result) {
+    		assert.isNull(err);
+    		assert.deepEqual({ok: true}, result);
+    		done();
+    	});
+    });
   });
 
 })
