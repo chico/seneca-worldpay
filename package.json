@@ -17,7 +17,8 @@
     "xmlbuilder": "~2.1.0",
     "request": "~2.34.0",
     "xml2js": "~0.4.1",
-    "optimist": "~0.6.1"
+    "optimist": "~0.6.1",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
     "seneca": "~0.5.8",
