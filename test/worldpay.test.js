@@ -80,7 +80,7 @@ describe('worldpay', function() {
 	it('handleResponse', function( done ){
     setup( function(){
     	var worldpayRedirect = 'https://secure-test.worldpay.com/wcc/dispatcher?OrderKey=CXTRPECOM%5Errywfubuu6';
-    	var expectedRedirect = worldpayRedirect + '&successURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcompleted&failureURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcancelled';
+    	var expectedRedirect = worldpayRedirect + '&successURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcompleted&failureURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcancelled&cancelURL=http%3A%2F%2Flocalhost%3A3000%2Fpay%2Fcancelled';
     	var responseXml = '<?xml version="1.0" encoding="UTF-8"?>';
     	responseXml += '<!DOCTYPE paymentService PUBLIC "-//WorldPay//DTD WorldPay PaymentService v1//EN" "http://dtd.worldpay.com/paymentService_v1.dtd">';
     	responseXml += '<paymentService version="1.4" merchantCode="ABC">';
