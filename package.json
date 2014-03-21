@@ -33,6 +33,9 @@
   "files": [
     "README.md",
     "LICENSE.txt",
-    "lib"
+    "lib/checkout.js",
+    "lib/main.js",
+    "lib/worldpay.js",
+    "test/worldpay.test.js"
   ]
 }
