@@ -1,37 +1,21 @@
-# seneca-worldpay
+# seneca-worldpay - Node.js module
 
-## A worldpay plugin for the [Seneca](http://senecajs.org) toolkit
+## Worldpay payments strategy for seneca-pay <a href="https://github.com/rjrodger/seneca">Seneca</a> plugin
 
-This module is a plugin for the Seneca framework. It provides worldpay payment integration capability for actions.
+Dependencies: [seneca-pay](/iantocristian/seneca-pay)
 
-With this module you can:
+### Usage
 
-   * Implement WorldPay XML Redirect payments
+     seneca.use('seneca-pay',{
+        worldpay: {
+          merchantCode: 'MYMERCHANT',
+          password: 'secret'
+        },
+        redirect: {
+          hostUrl: 'http://www.mywebsite.com',
+          success: '/completed',
+          fail: '/cancelled'
+        }
+     })
 
-## Quick example
-
-```JavaScript
-var seneca = require('seneca')()
-
-seneca.use('worldpay',{
-  config:{
-
-  }
-})
-
-seneca.ready(function(err){
-  if( err ) return console.log(err);
-
-  seneca.act({
-    role:'worldpay',
-    cmd:'purchase'
-  })
-})
-```
-
-## Test
-
-```sh
-cd test
-mocha worldpay.test.js --seneca.log.print
-```
+     seneca.use('seneca-worldpay')
