@@ -13,20 +13,19 @@ describe('worldpay', function() {
 	var client;
 
 	var data = {
-		production: false,
 		merchantCode: 'ABC',
 		password: 'test',
 		redirect: {
-        hostUrl: "http://localhost:3000",
-        success: "/pay/completed",
-        fail: "/pay/cancelled"
-    },
-    order: {
-      id: '123',
-      description: 'test order',
-      currencyCode: 'EUR',
-      amount: 10
-  	}
+            hostUrl: "http://localhost:3000",
+            success: "/pay/completed",
+            fail: "/pay/cancelled"
+        },
+        order: {
+            id: '123',
+            description: 'test order',
+            currencyCode: 'EUR',
+            amount: 10
+      	}
 	};
 
 	function setup(cb) {
