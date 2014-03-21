@@ -1,6 +1,6 @@
 {
   "name": "seneca-worldpay",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Seneca worldpay plugin",
   "main": "lib/main.js",
   "scripts": {
